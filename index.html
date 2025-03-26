@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed a Life - Reducing Food Waste, Feeding Hope</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Navigation -->
+        <header id="main-header">
+            <div class="logo">Feed a Life</div>
+            <nav>
+                <ul>
+                    <li><a href="#" data-page="home">Home</a></li>
+                    <li><a href="#" data-page="restaurants">Restaurants</a></li>
+                    <li><a href="#" data-page="recipients">Recipients</a></li>
+                    <li><a href="#" data-page="map">Food Map</a></li>
+                    <li><a href="#" data-page="login">Login/Register</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main Content Area -->
+        <main id="main-content">
+            <!-- Home Page -->
+            <section id="home-page" class="page active">
+                <div class="hero">
+                    <h1>Connect. Donate. Feed.</h1>
+                    <p>Bridging the gap between excess food and those in need</p>
+                    <div class="cta-buttons">
+                        <button class="btn" data-page="restaurants">For Restaurants</button>
+                        <button class="btn" data-page="recipients">Find Food</button>
+                    </div>
+                </div>
+                <div class="impact-stats">
+                    <div class="stat">
+                        <h3>500+</h3>
+                        <p>Meals Donated</p>
+                    </div>
+                    <div class="stat">
+                        <h3>50+</h3>
+                        <p>Participating Restaurants</p>
+                    </div>
+                    <div class="stat">
+                        <h3>10+</h3>
+                        <p>Cities Covered</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Restaurants Page -->
+            <section id="restaurants-page" class="page">
+                <h2>Restaurant Portal</h2>
+                <div class="restaurant-sections">
+                    <div class="restaurant-registration">
+                        <h3>Restaurant Registration</h3>
+                        <form id="restaurant-registration-form">
+                            <input type="text" placeholder="Restaurant Name" required>
+                            <input type="email" placeholder="Contact Email" required>
+                            <input type="text" placeholder="Address" required>
+                            <input type="tel" placeholder="Contact Number" required>
+                            <button type="submit" class="btn">Register</button>
+                        </form>
+                    </div>
+                    <div class="food-donation-form">
+                        <h3>Donate Surplus Food</h3>
+                        <form id="food-donation-form">
+                            <select required>
+                                <option value="">Select Food Category</option>
+                                <option value="vegetarian">Vegetarian</option>
+                                <option value="non-vegetarian">Non-Vegetarian</option>
+                                <option value="vegan">Vegan</option>
+                                <option value="bakery">Bakery</option>
+                            </select>
+                            <input type="text" placeholder="Food Description" required>
+                            <input type="number" placeholder="Quantity (servings)" required>
+                            <input type="datetime-local" required>
+                            <button type="submit" class="btn">Post Donation</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recipients Page -->
+            <section id="recipients-page" class="page">
+                <h2>Food Recipients</h2>
+                <div class="recipient-sections">
+                    <div class="search-food">
+                        <h3>Search Available Food</h3>
+                        <div class="search-filters">
+                            <input type="text" id="location-search" placeholder="Enter Location">
+                            <select id="food-type-filter">
+                                <option value="">All Food Types</option>
+                                <option value="vegetarian">Vegetarian</option>
+                                <option value="non-vegetarian">Non-Vegetarian</option>
+                                <option value="vegan">Vegan</option>
+                                <option value="bakery">Bakery</option>
+                            </select>
+                            <button id="search-food-btn" class="btn">Search</button>
+                        </div>
+                        <div id="food-listings" class="food-list"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Food Map Page -->
+            <section id="map-page" class="page">
+                <h2>Food Distribution Map</h2>
+                <div id="food-map" class="map-container"></div>
+            </section>
+
+            <!-- Login/Register Page -->
+            <section id="login-page" class="page">
+                <div class="login-container">
+                    <div class="login-form">
+                        <h3>Login</h3>
+                        <form id="login-form">
+                            <input type="email" placeholder="Email" required>
+                            <input type="password" placeholder="Password" required>
+                            <button type="submit" class="btn">Login</button>
+                        </form>
+                    </div>
+                    <div class="register-form">
+                        <h3>Register</h3>
+                        <form id="register-form">
+                            <input type="text" placeholder="Full Name" required>
+                            <input type="email" placeholder="Email" required>
+                            <input type="password" placeholder="Password" required>
+                            <select required>
+                                <option value="">Select User Type</option>
+                                <option value="restaurant">Restaurant</option>
+                                <option value="ngo">NGO</option>
+                                <option value="individual">Individual</option>
+                            </select>
+                            <button type="submit" class="btn">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="restaurants">Restaurants</a></li>
+                        <li><a href="#" data-page="recipients">Recipients</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: support@feedalife.org</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2025 Feed a Life. All Rights Reserved.
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
